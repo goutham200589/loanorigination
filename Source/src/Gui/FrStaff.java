@@ -222,7 +222,7 @@ public class FrStaff extends javax.swing.JFrame {
 
         txtApproveAdmin.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtApproveAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1409471471_stock_task.png"))); // NOI18N
-        txtApproveAdmin.setText("Pending");
+        txtApproveAdmin.setText("Pennding");
         txtApproveAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         txtApproveAdmin.setMargin(new java.awt.Insets(2, 0, 2, 0));
         txtApproveAdmin.setMaximumSize(new java.awt.Dimension(100, 50));

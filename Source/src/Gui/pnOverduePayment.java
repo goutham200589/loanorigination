@@ -108,7 +108,7 @@ public class pnOverduePayment extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
                 
-                String url= "C:\\santhosh\\workspace\\Loan-Processing-System-master\\src\\report\\RpOverdue.jrxml";
+                String url= "report/RpOverdue.jrxml";
                 JasperReport jas_report = JasperCompileManager.compileReport(url);
                 JasperPrint Jast_print = JasperFillManager.fillReport(jas_report,  null, MyLib.getCon());
                 JasperViewer.viewReport(Jast_print, false);

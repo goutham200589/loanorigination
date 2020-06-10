@@ -301,7 +301,7 @@ public class PnApprovedStaff extends javax.swing.JPanel {
                             String raddress = rq.address;
                             String rorganization = rq.organization;
                             String rphone = rq.phone;
-                            Date rDob = (Date) rq.Dob;
+                            Date rDob = rq.Dob;
                             Double rloanAmount = rq.loanAmount;
                             Double rcollateral = rq.collateral;
                             String rloanType = rq.loanType;
@@ -314,7 +314,7 @@ public class PnApprovedStaff extends javax.swing.JPanel {
                                 blstatus = true;
                             }
                             String rloanStatus = rq.loanStatus;
-                            Date rday = (Date) rq.day;
+                            Date rday = rq.day;
                             int irate = rq.irate;
                             PnShow.removeAll();
                             PnNewCustomer a = new PnNewCustomer(PnShow, ricard, rname, rDob, raddress, rphone, rorganization, rsalary, rcollateral, rloanAmount, rloanType, rperiod, rloanStatus, rgrade, irate, blstatus, rqID);

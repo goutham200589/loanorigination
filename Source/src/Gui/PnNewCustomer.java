@@ -18,17 +18,8 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-import data.Contract;
-import data.ContractList;
-import data.Customer;
-import data.CustomerList;
-import data.MyLib;
-import data.PlanPayment;
-import data.RequestList;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -585,7 +576,7 @@ public class PnNewCustomer extends javax.swing.JPanel {
         String loanType = txtLoanType.getText().trim();
         String loanStatus = txtLoanStatus.getText().trim();
 
-        Contract con = new Contract(id, acccon, loanType, loanAmout, Collateral, grade, Period, sqlDate, "Normal", loanStatus);
+        Contract con = new Contract(id, acccon, loanType, loanAmout, Collateral, grade, Period, sqlDatecon, "Normal", loanStatus);
         int ID = conl.insert(con);
         JOptionPane.showMessageDialog(null, "Add Contract Success !");
 
@@ -608,7 +599,7 @@ public class PnNewCustomer extends javax.swing.JPanel {
         ngaythanhtoan.add(Calendar.MONTH, 1);
         java.util.Date ngaythanhtoanulti = ngaythanhtoan.getTime();
         java.sql.Date ngaythanhtoansql = new java.sql.Date(ngaythanhtoanulti.getTime());
-        PlanPayment a = new PlanPayment(ID, 1, goctrongky, gocconlai, laitrongky, tongcong, ngaybatdausql, ngaythanhtoansql, "Not Yet", iCard, 0, sqlDatecon);
+        PlanPayment a = new PlanPayment(ID, 1, goctrongky, gocconlai, laitrongky, tongcong, ngaybatdausql, ngaythanhtoansql, "Not Yet", iCard, 0, null);
         ArrayList<PlanPayment> detail = new ArrayList<>();
         detail.add(a);
 
@@ -620,7 +611,7 @@ public class PnNewCustomer extends javax.swing.JPanel {
             ngaythanhtoan.add(Calendar.MONTH, i + 1);
             ngaythanhtoanulti = ngaythanhtoan.getTime();
             ngaythanhtoansql = new java.sql.Date(ngaythanhtoanulti.getTime());
-            PlanPayment b = new PlanPayment(ID, i + 1, goctrongky, gocconlai, laitrongky, tongcong, ngaybatdausql, ngaythanhtoansql, "Not Yet", iCard, 0, sqlDatecon);
+            PlanPayment b = new PlanPayment(ID, i + 1, goctrongky, gocconlai, laitrongky, tongcong, ngaybatdausql, ngaythanhtoansql, "Not Yet", iCard, 0, null);
             detail.add(b);
         }
         for (PlanPayment planPayment : detail) {
@@ -629,7 +620,7 @@ public class PnNewCustomer extends javax.swing.JPanel {
 
         RequestList list = new RequestList();
         list.delete(Integer.parseInt(txtRqID.getText()));
-        HashMap<String,Object> map = new HashMap();
+        HashMap map = new HashMap();
         map.put("conID_para", ID);
         map.put("name_para", name);
         map.put("dob_para", utilDate.toString());
