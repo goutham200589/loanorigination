@@ -20,6 +20,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -104,22 +105,44 @@ public class PnPayment extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 255), new java.awt.Color(153, 153, 255)));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INPUT", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 18), new java.awt.Color(51, 51, 255))); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+      // jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+       jPanel1.setLayout(new java.awt.GridBagLayout());
 
+       
         jLabel1.setText("Indentify No :");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        //jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         txtinden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtindenActionPerformed(evt);
+               // txtindenActionPerformed(evt);
             }
         });
-        jPanel1.add(txtinden, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 116, -1));
+        txtinden.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+            	//txtindenActionPerformed(evt);
+            }
+        });
+        txtinden.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+            	txtindenActionPerformed(evt);
+            }
+        });
+        java.awt.GridBagConstraints gridBagConstraints;
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 204;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(120, 30, 116, -1);
+        jPanel1.add(txtinden, gridBagConstraints);
+      // jPanel1.add(txtinden, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 116, -1));
 
         jLabel2.setText("Contract No :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        //jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        cbContract.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chọn HĐ" }));
+        cbContract.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chá»�n HÄ�" }));
         cbContract.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 cbContractFocusGained(evt);
@@ -130,7 +153,7 @@ public class PnPayment extends javax.swing.JPanel {
                 cbContractActionPerformed(evt);
             }
         });
-        jPanel1.add(cbContract, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 116, -1));
+      //  jPanel1.add(cbContract, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 116, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -397,7 +420,7 @@ public class PnPayment extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRemainActionPerformed
     DefaultComboBoxModel cbmodel;
-    private void txtindenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtindenActionPerformed
+    private void txtindenActionPerformed(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtindenActionPerformed
         String inden = txtinden.getText().trim();
         ContractList list = new ContractList();
 
@@ -487,7 +510,8 @@ public class PnPayment extends javax.swing.JPanel {
                 map.put("date_para", new Date());
                 map.put("contractID_para", cbContract.getSelectedItem());
                 map.put("total_para", txtAmount.getText());
-                String url = "report/RpBill.jrxml";
+                //String url = "report/RpBill.jrxml";
+                String url= "C:\\santhosh\\workspace\\Loan-Processing-System-master\\src\\report\\RpBill.jrxml";
                 JasperReport jas_report = JasperCompileManager.compileReport(url);
                 JasperPrint Jast_print = JasperFillManager.fillReport(jas_report, map, MyLib.getCon());
                 JasperViewer.viewReport(Jast_print, false);

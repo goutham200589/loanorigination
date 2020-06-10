@@ -51,23 +51,18 @@ public class PnLoanType extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
-        LoanTypeList lt = new LoanTypeList();
+
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtLoanName = new javax.swing.JTextField();
         btnOK = new javax.swing.JButton();
         txtRate = new javax.swing.JFormattedTextField();
-        txtBenchmarkRate = "";
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbLoan = new javax.swing.JTable();
-        cbContract = new javax.swing.JComboBox();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 255), new java.awt.Color(153, 153, 255)));
         setLayout(new java.awt.BorderLayout());
@@ -78,38 +73,18 @@ public class PnLoanType extends javax.swing.JPanel {
         jPanel1.setMinimumSize(new java.awt.Dimension(423, 254));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("Loan Type Name");
+        jLabel1.setText("Loan Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(77, 76, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
-       
-       
-        
-		jLabel3.setText("Benchmark Type");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 76, 0, 0);
-        jPanel1.add(jLabel3, gridBagConstraints);
-        
-        jLabel5.setText("Benchmark Rate");
+
+        jLabel2.setText("Interest Rate");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 76, 0, 0);
-        jPanel1.add(jLabel5, gridBagConstraints);
-        
-        jLabel2.setText("Credit Spread");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(40, 76, 0, 0);
@@ -134,7 +109,7 @@ public class PnLoanType extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -148,54 +123,14 @@ public class PnLoanType extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 187;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(37, 19, 0, 82);
-        jPanel1.add(txtRate, gridBagConstraints);
-        
-        //TODO
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
-        //gridBagConstraints.ipadx = 187;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(37, 19, 0, 82);
-        cbContract.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "","PRIME LENDING RATE", "LIBOR", "COST CURVE" }));
-        jPanel1.add(cbContract, gridBagConstraints);
-		
-//		cbContract.addFocusListener(new java.awt.event.FocusAdapter() {
-//			public void focusGained(java.awt.event.FocusEvent evt) {
-//				cbContractFocusGained(evt);
-//			}
-//		});
-		cbContract.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				cbContractActionPerformed(evt);
-			}
-		});
-		 
-        
-        if(txtBenchmarkRate == null || txtBenchmarkRate.equals(""))
-    	{
-        	jLabel4.setText("");
-    	} else {
-    		jLabel4.setText(txtBenchmarkRate + "%");
-    	}
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 187;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(37, 19, 0, 82);
-        jPanel1.add(jLabel4, gridBagConstraints);
-        
+        jPanel1.add(txtRate, gridBagConstraints);
+
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,7 +139,7 @@ public class PnLoanType extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(39, 10, 62, 0);
         jPanel1.add(btnUpdate, gridBagConstraints);
@@ -217,7 +152,7 @@ public class PnLoanType extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(39, 10, 62, 0);
         jPanel1.add(btnDelete, gridBagConstraints);
@@ -254,33 +189,14 @@ public class PnLoanType extends javax.swing.JPanel {
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    protected void cbContractActionPerformed(ActionEvent evt) {
-    	LoanTypeList lt = new LoanTypeList();
-    	txtBenchmarkRate = String.valueOf(lt.getBenchmarkRate(cbContract.getSelectedItem().toString().toUpperCase()));
-		jLabel4.setText(txtBenchmarkRate + "%");
-		GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 187;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(37, 19, 0, 82);
-        jPanel1.add(jLabel4, gridBagConstraints);
-		//initData();
-	}
-
-	private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
         if (dk == 0) {
             String name = txtLoanName.getText().trim();
             String rate = txtRate.getText().trim();
-            String benchmark = cbContract.getSelectedItem().toString().toUpperCase();
-            int creditspread = Integer.parseInt(rate);
             if (name.equals("") || rate.equals("")) {
                 JOptionPane.showMessageDialog(null, "Please fill all the fields");
             } else {
-            	int revisedRate = Integer.parseInt(getPLR(cbContract.getSelectedItem().toString().toUpperCase())) + Integer.parseInt(rate);
-                Loantype lt = new Loantype(name, revisedRate, creditspread, benchmark);
+                Loantype lt = new Loantype(name, Integer.parseInt(rate));
                 LoanTypeList ltList = new LoanTypeList();
                 if (ltList.insert(lt)) {
                     JOptionPane.showMessageDialog(null, "Insert Successed");
@@ -309,12 +225,10 @@ public class PnLoanType extends javax.swing.JPanel {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         String name = txtLoanName.getText().trim();
         String rate = txtRate.getText().trim();
-        String benchmark = cbContract.getSelectedItem().toString().toUpperCase();
         if (name.equals("") || rate.equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill all the fields");
         } else {
-        	int revisedRate = Integer.parseInt(getPLR(benchmark)) + Integer.parseInt(rate);
-            Loantype lt = new Loantype(name, revisedRate, Integer.parseInt(rate), benchmark);
+            Loantype lt = new Loantype(name, Integer.parseInt(rate));
             LoanTypeList ltList = new LoanTypeList();
             if (ltList.update(lt)) {
                 JOptionPane.showMessageDialog(null, "Update Successed");
@@ -334,13 +248,9 @@ public class PnLoanType extends javax.swing.JPanel {
     private void tbLoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLoanMouseClicked
         int i = tbLoan.getSelectedRow();
         //doc du lieu cua tung cot tren dong nay, fill vao cac o nhap lieu
+
         txtLoanName.setText(tbLoan.getValueAt(i, 0).toString());
-        LoanTypeList lt = new LoanTypeList();
-        Loantype d = lt.getLoanTypeData(tbLoan.getValueAt(i, 0).toString());
-        int revisedRate = Integer.parseInt(tbLoan.getValueAt(i, 1).toString()) - Integer.parseInt(getPLR(""));
-        txtLoanName.setText(d.loanName);
-        txtRate.setText(String.valueOf(d.creditSpread));
-        cbContract.setSelectedItem(d.benchMarkType);
+        txtRate.setText(tbLoan.getValueAt(i, 1).toString());
         btnOK.setText(" New ");
         txtLoanName.setEnabled(false);
         dk = 1;
@@ -383,13 +293,7 @@ public class PnLoanType extends javax.swing.JPanel {
             }
         });            // TODO add your handling code here:
     }//GEN-LAST:event_txtRateKeyPressed
-    
-    private String getPLR(String benchmarkType)
-    {
-    	LoanTypeList ltList = new LoanTypeList();
-    	plr = String.valueOf(ltList.getBenchmarkRate(benchmarkType));
-    	return plr;
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
@@ -397,9 +301,6 @@ public class PnLoanType extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

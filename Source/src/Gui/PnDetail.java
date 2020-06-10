@@ -124,7 +124,7 @@ public class PnDetail extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setText("Ngày Vay :");
+        jLabel7.setText("<<CHECK>>:");
 
         txtInden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +136,7 @@ public class PnDetail extends javax.swing.JPanel {
         cbContract.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 cbContractFocusGained(evt);
+                cbContractActionPerformed();
             }
         });
         cbContract.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +300,9 @@ public class PnDetail extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbContractFocusGained
 
-    private void cbContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbContractActionPerformed
+   private void cbContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbContractActionPerformed
+   }
+    private void cbContractActionPerformed() {//GEN-FIRST:event_cbContractActionPerformed
         
         if (cbmodel.getSize() != 0) {
             model.setRowCount(0);
