@@ -635,7 +635,7 @@ public class PnNewCustomer extends javax.swing.JPanel {
         map.put("coll_para", Collateral);
         map.put("rate_para", txtIntRate.getText());
         map.put("accNo_para", conl.getacc(txtindentify.getText()));
-        String url = "report/RpContract.jrxml";
+        String url= "C:\\Users\\hp\\git\\loanorigination\\Source\\src\\report\\RpContract.jrxml";
         try {
             JasperReport jas_report = JasperCompileManager.compileReport(url);
             JasperPrint jas_print = JasperFillManager.fillReport(jas_report, map, MyLib.getCon());

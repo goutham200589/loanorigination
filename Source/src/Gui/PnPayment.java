@@ -119,7 +119,7 @@ public class PnPayment extends javax.swing.JPanel {
         jLabel2.setText("Contract No :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        cbContract.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chọn HĐ" }));
+        cbContract.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chá»�n HÄ�" }));
         cbContract.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 cbContractFocusGained(evt);
@@ -487,7 +487,7 @@ public class PnPayment extends javax.swing.JPanel {
                 map.put("date_para", new Date());
                 map.put("contractID_para", cbContract.getSelectedItem());
                 map.put("total_para", txtAmount.getText());
-                String url = "report/RpBill.jrxml";
+                String url= "C:\\Users\\hp\\git\\loanorigination\\Source\\src\\report\\RpBill.jrxml";
                 JasperReport jas_report = JasperCompileManager.compileReport(url);
                 JasperPrint Jast_print = JasperFillManager.fillReport(jas_report, map, MyLib.getCon());
                 JasperViewer.viewReport(Jast_print, false);

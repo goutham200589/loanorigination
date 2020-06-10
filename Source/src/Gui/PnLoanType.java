@@ -227,26 +227,26 @@ public class PnLoanType extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.BorderLayout());
 
         tbLoan.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object [][] {
 
-            },
-            new String [] {
-                "Loan Name", "Interest Rate"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
+                },
+                new String [] {
+                    "Loan Name", "Interest Rate"
+                }
+            ) {
+                boolean[] canEdit = new boolean [] {
+                    false, false
+                };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbLoan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbLoanMouseClicked(evt);
-            }
-        });
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            });
+            tbLoan.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    tbLoanMouseClicked(evt);
+                }
+            });
         jScrollPane1.setViewportView(tbLoan);
 
         jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
