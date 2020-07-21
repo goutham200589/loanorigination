@@ -165,7 +165,8 @@ public class PnLoanType extends javax.swing.JPanel {
         //gridBagConstraints.ipadx = 187;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(37, 19, 0, 82);
-        cbContract.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "","PRIME LENDING RATE", "LIBOR", "COST CURVE" }));
+        
+        cbContract.setModel(new javax.swing.DefaultComboBoxModel(abc.getBenchmarkTypes()));
         jPanel1.add(cbContract, gridBagConstraints);
 		
 //		cbContract.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -256,7 +257,7 @@ public class PnLoanType extends javax.swing.JPanel {
 
     protected void cbContractActionPerformed(ActionEvent evt) {
     	LoanTypeList lt = new LoanTypeList();
-    	txtBenchmarkRate = String.valueOf(lt.getBenchmarkRate(cbContract.getSelectedItem().toString().toUpperCase()));
+    	txtBenchmarkRate = String.valueOf(lt.getBenchmarkRateARR(cbContract.getSelectedItem().toString().toUpperCase()));
 		jLabel4.setText(txtBenchmarkRate + "%");
 		GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -336,7 +337,7 @@ public class PnLoanType extends javax.swing.JPanel {
         //doc du lieu cua tung cot tren dong nay, fill vao cac o nhap lieu
         txtLoanName.setText(tbLoan.getValueAt(i, 0).toString());
         LoanTypeList lt = new LoanTypeList();
-        Loantype d = lt.getLoanTypeData(tbLoan.getValueAt(i, 0).toString());
+        Loantype d = lt.getLoanTypeDataARR(tbLoan.getValueAt(i, 0).toString());
         int revisedRate = Integer.parseInt(tbLoan.getValueAt(i, 1).toString()) - Integer.parseInt(getPLR(""));
         txtLoanName.setText(d.loanName);
         txtRate.setText(String.valueOf(d.creditSpread));
@@ -387,7 +388,7 @@ public class PnLoanType extends javax.swing.JPanel {
     private String getPLR(String benchmarkType)
     {
     	LoanTypeList ltList = new LoanTypeList();
-    	plr = String.valueOf(ltList.getBenchmarkRate(benchmarkType));
+    	plr = String.valueOf(ltList.getBenchmarkRateARR(benchmarkType));
     	return plr;
     }
 
@@ -409,6 +410,7 @@ public class PnLoanType extends javax.swing.JPanel {
     private String txtBenchmarkRate;
     private javax.swing.JComboBox cbContract;
     private  String plr = "";
+    LoanTypeList abc = new LoanTypeList();
     // End of variables declaration//GEN-END:variables
 
     DefaultTableModel model;

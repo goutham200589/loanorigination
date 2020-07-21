@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -166,6 +167,53 @@ public class LoanTypeList {
     	return plr;
     }
     
+    public int getBenchmarkRateARR(String type)
+    {
+    	if(type.equals("LIBOR"))
+    	{
+    		type = "SOFR";
+    	}
+    	int plr = 0;
+    	Connection cn = MyLib.getCon();
+    	String sql = "select plr from tbbenchmark where type = ?";
+    	try {
+			PreparedStatement pst = cn.prepareStatement(sql);
+			pst.setString(1, type);
+			ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+            	plr = rs.getInt(1);
+            } 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return plr;
+    }
+    
+    public String[] getBenchmarkTypes()
+    {
+    	List<String> ab = new ArrayList<String>();
+    	
+    	Connection cn = MyLib.getCon();
+    	String sql = "select distinct(type) from tbbenchmark";
+    	try {
+			PreparedStatement pst = cn.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			ab.add(" ");
+           while(rs.next())
+           {
+        	   ab.add(rs.getString(1));
+           }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	String[] a = new String[ab.size()];
+    	a = ab.toArray(a);
+    	return a;
+    }
+    
     public int getARR()
     {
     	int plr = 0;
@@ -202,7 +250,7 @@ public class LoanTypeList {
                 pst.setString(1, loanName);
                 ResultSet rs = pst.executeQuery();
                 if (rs.next()) {
-                    iRate = getBenchmarkRate(rs.getString(4)) + rs.getInt(3);
+                    iRate = getBenchmarkRateARR(rs.getString(4)) + rs.getInt(3);
                 }
 
                 //dong resultset, connection
@@ -234,8 +282,34 @@ public class LoanTypeList {
 			while(rs.next())
 			{
 				String loanName = rs.getString(1);
-                int iRate = getBenchmarkRate(rs.getString(4)) + rs.getInt(3);
+                int iRate = getBenchmarkRateARR(rs.getString(4)) + rs.getInt(3);
                 String benchMarkRate = rs.getString(4);
+                int creditSpread = rs.getInt(3);
+                ret = new Loantype(loanName, iRate, creditSpread, benchMarkRate);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	return ret;
+    }
+    
+    public Loantype getLoanTypeDataARR(String loantype)
+    {
+    	Loantype ret = new Loantype();
+    	Connection con = MyLib.getCon();
+    	try {
+			PreparedStatement ps = con.prepareStatement("select * from tbloantype where loanname = ?");
+			ps.setString(1, loantype);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				String loanName = rs.getString(1);
+                int iRate = getBenchmarkRateARR(rs.getString(4)) + rs.getInt(3);
+                String benchMarkRate = rs.getString(4);
+                if(benchMarkRate.equals("LIBOR"))
+				{
+					benchMarkRate = "SOFR";
+				}
                 int creditSpread = rs.getInt(3);
                 ret = new Loantype(loanName, iRate, creditSpread, benchMarkRate);
 			}
